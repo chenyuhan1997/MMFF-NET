@@ -12,7 +12,7 @@ class LFFM(nn.Module):
         self.Conv3 = nn.Conv2d(channels, channels // 2, 3, stride=1, padding=0, dilation=1)
         self.Conv4 = nn.Conv2d(channels, channels // 2, 3, stride=1, padding=2, dilation=3)
         self.Conv5 = nn.Conv2d(channels, channels // 2, 3, stride=1, padding=1, bias=True)
-        self.Conv6 = nn.Conv2d(channels // 2, 1, 1, stride=1, padding=1, bias=True)
+        self.Conv6 = nn.Conv2d(channels // 2, 1, 1, stride=1, padding=0, bias=True)
         self.bn = nn.BatchNorm2d(channels // 2)
         self.RELU = nn.ReLU()
     def forward(self, x):
