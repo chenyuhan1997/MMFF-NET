@@ -14,9 +14,8 @@ model.py ----You can modify the network structure
 This is my own code for my first post, and the overall code is not perfect.
 For some reasons, our training set is not publicly available.
 You can train with Zero-DCE's training set and the results are just as good.
-[zero-dce](https://github.com/Li-Chongyi/Zero-DCE)
 ```
-
+[zero-dce](https://github.com/Li-Chongyi/Zero-DCE)
 
 ## Bibtex
 ```
