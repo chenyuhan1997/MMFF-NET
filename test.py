@@ -41,4 +41,4 @@ if __name__ == "__main__":
         print(image.shape)
         enhance_img, r, Fu = model_test(image)
         img = torchvision.utils.make_grid(enhance_img).cpu().numpy()
-        torchvision.utils.save_image(image,'kkk'+'%d.png'% (idx), padding = 0)
+        torchvision.utils.save_image(enhance_img,'kkk'+'%d.png'% (idx), padding = 0)
