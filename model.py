@@ -107,19 +107,19 @@ class MMFF_NET(nn.Module):
         self.score_dsn4 = nn.Conv2d(64, 1, 1)
         self.score_dsn5 = nn.Conv2d(64, 1, 1)
         self.score_fuse = nn.Conv2d(1, 1, 1)
-        self.residual0_1 = self.make_layer(MSRB_Block(channel=16))
-        self.residual0_2 = self.make_layer(MSRB_Block(channel=16))
-        self.residual1_1 = self.make_layer(MSRB_Block(channel=32))
-        self.residual1_2 = self.make_layer(MSRB_Block(channel=32))
-        self.residual2_1 = self.make_layer(MSRB_Block(channel=64))
-        self.residual2_2 = self.make_layer(MSRB_Block(channel=64))
-        self.residual3_1 = self.make_layer(MSRB_Block(channel=64))
-        self.residual3_2 = self.make_layer(MSRB_Block(channel=64))
-        self.residual4_1 = self.make_layer(MSRB_Block(channel=64))
-        self.residual4_2 = self.make_layer(MSRB_Block(channel=64))
-        self.residual5_1 = self.make_layer(MSRB_Block(channel=64))
-        self.residual5_2 = self.make_layer(MSRB_Block(channel=64))
-        self.residual5_3 = self.make_layer(MSRB_Block(channel=64))
+        self.residual0_1 = MSRB_Block(channel=16)
+        self.residual0_2 = MSRB_Block(channel=16)
+        self.residual1_1 = MSRB_Block(channel=32)
+        self.residual1_2 = MSRB_Block(channel=32)
+        self.residual2_1 = MSRB_Block(channel=64)
+        self.residual2_2 = MSRB_Block(channel=64)
+        self.residual3_1 = MSRB_Block(channel=64)
+        self.residual3_2 = MSRB_Block(channel=64)
+        self.residual4_1 = MSRB_Block(channel=64)
+        self.residual4_2 = MSRB_Block(channel=64)
+        self.residual5_1 = MSRB_Block(channel=64)
+        self.residual5_2 = MSRB_Block(channel=64)
+        self.residual5_3 = MSRB_Block(channel=64)
         self.weight_deconv1 = self._make_bilinear_weights(2, 1).cuda()
         self.weight_deconv2 = self._make_bilinear_weights(4, 1).cuda()
         self.weight_deconv3 = self._make_bilinear_weights(8, 1).cuda()
@@ -146,11 +146,6 @@ class MMFF_NET(nn.Module):
                 if i == j:
                     w[i, j] = filt
         return w
-#-----------------------------------------------------------------------------------------------------------------------
-    def make_layer(self, block):
-        layers = []
-        layers.append(block())
-        return nn.Sequential(*layers)
 #-----------------------------------------------------------------------------------------------------------------------
     def forward(self, x):
         conv0_1 = self.relu(self.conv0_1(x))
