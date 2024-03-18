@@ -9,6 +9,7 @@ train.py ----Training code
 test.py  ----Testing code
 model.py ----You can modify the network structure
 ```
+## We provide two pre-trained models that you can also train on your own
 ## Supplementary Note
 ```
 This is my own code for my first post, and the overall code is not perfect.
